@@ -1,33 +1,25 @@
 import React, { useState } from "react";
-
-
 const Counter = () => {
-    const arr = ['tag1', 'tag2', 'tag3']
     const [count, setCount] = useState(0)
-    const [tags, setTegs] = useState(arr)
+    const [tags, setTegs] = useState(['tag1', 'tag2', 'tag3'])
     
-
     const formatCount = () => {
       return  count === 0 ? 'empty' : count
     }
-   
     const getBageClasses = () => {
-        return count === 0 
-        ? "badge m-2 text-bg-warning" 
-        : 'badge m-2 text-bg-primary'
+       let classes = 'badge m-2 '
+       classes += count === 0 ? 'bg-warning' : 'bg-primary'
+       return classes
     }
     
     const handleIncrement = () => {
         setCount((prevState) => prevState + 1)
     }
-
     const handleDecrement = () => {
         if(count > 0) {
             setCount((prevState) => prevState - 1)
         }
     } 
-  
-    
     const handleTagChange = (id) => {
         console.log('id', id)
         setTegs((prevItems) => prevItems.filter(tag => tag !== id))
