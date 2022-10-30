@@ -9,22 +9,51 @@ const CountersList = () => {
       {id: 4, value: 0, name: 'Тарелка'}, 
       {id: 5, value: 0, name: 'Набор минималиста'}
   ]
-    const [counters, satCounters] = useState(initialState)
+
+  
+    const [counters, setCounters] = useState(initialState)
     const handeleDelete = (id) => {
       const newCounters = counters.filter((c) => c.id !== id)
-      satCounters(newCounters)
+      setCounters(newCounters)
     }
 
     const hendleReset = () => {
-      satCounters(initialState)
+      // console.log('reset')
+      setCounters(initialState)
     }
+
+    const handleIncrement = (id) => {
+      const elementIndex = counters.findIndex(c => c.id === id)
+      const newCounters = [...counters]
+      newCounters[elementIndex].value++
+      setCounters(newCounters)
+    }
+
+    const handleDecrement = (id) => {
+      const elementIndex = counters.findIndex(c => c.id === id)
+      const newCounters = [...counters]
+      newCounters[elementIndex].value--
+      setCounters(newCounters) 
+    }
+
+    
   return (
     <>
         {counters.map((count) => (
-                <Counter key={count.id} onDelete={handeleDelete} {...count} />
+                <Counter 
+                    key={count.id} 
+                    onDelete={handeleDelete} 
+                    onIncrement={handleIncrement}
+                    onDecrement={handleDecrement}
+                    {...count} />
                 
           ))}
-          <button className="btn btn-primary btn-sm m-2" onClick={hendleReset}>Сброс</button>
+          <button 
+              className="btn btn-primary btn-sm m-2" 
+              onClick={hendleReset}
+          >
+              Сброс
+          </button>
     </>
   )
 }
