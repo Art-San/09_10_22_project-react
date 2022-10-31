@@ -9,7 +9,7 @@ const Episode = (props) => {
                 <h5 className="card-title">
                     {name} {Episode}
                 </h5>
-                <h6 className="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted bg-warning">
                     {airDate}
                 </h6>
             </div>
