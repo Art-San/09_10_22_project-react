@@ -1,15 +1,10 @@
 import React from 'react'
-// import Counter from './components/counter'
-import EpisodesList from './components/EpisodesList'
+import Page from './components/Page'
 
 const App = () => {
   return (
     <>
-     {/* <Counter/> */}
-     <div className='App'>
-       <EpisodesList/>
-     </div>
-     
+     <Page/>
     </>
   )
 }
