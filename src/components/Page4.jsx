@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Page = () => {
+const Page4 = () => {
     // const logoUrl = "https://picsum.photos/100";
     const logoUrl = "";
     const siteName = "example.com";
@@ -16,9 +16,10 @@ const Page = () => {
   return (
     <>
         <header>{getHeadLine()}</header>
+        <p>Вложенные выражения</p>
         <footer>Подвал</footer>
     </>
   )
 }
 
-export default Page
+export default Page4
