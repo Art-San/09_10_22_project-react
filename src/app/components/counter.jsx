@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react'
 const Counter = (props) => {
-    const { value } = props;
+    const { value } = props
     // const [value, setValue] = useState(props.value)
 
     const formatValue = () => {
-        return value === 0 ? "empty" : value;
-    };
+        return value === 0 ? 'empty' : value
+    }
     const getBageClasses = () => {
-        let classes = "badge m-2 ";
-        classes += value === 0 ? "bg-warning" : "bg-primary";
-        return classes;
-    };
+        let classes = 'badge m-2 '
+        classes += value === 0 ? 'bg-warning' : 'bg-primary'
+        return classes
+    }
 
     const handleIncrement = () => {
-        props.onIncrement(props.id);
-    };
+        props.onIncrement(props.id)
+    }
     const handleDecrement = () => {
-        props.onDecrement(props.id);
-    };
+        props.onDecrement(props.id)
+    }
 
     return (
         <div>
@@ -42,7 +42,7 @@ const Counter = (props) => {
                 Delete
             </button>
         </div>
-    );
-};
+    )
+}
 
-export default Counter;
+export default Counter

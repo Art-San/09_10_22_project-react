@@ -1,6 +1,6 @@
-import React from "react";
-import Qualitie from "./Qualitie";
-import BookMark from "./Bookmark";
+import React from 'react'
+import Qualitie from './Qualitie'
+import BookMark from './Bookmark'
 
 const User = ({
     _id,
@@ -39,7 +39,7 @@ const User = ({
                 </button>
             </td>
         </tr>
-    );
-};
+    )
+}
 
-export default User;
+export default User

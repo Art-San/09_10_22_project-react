@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
-    const [menuItems, setMenuItems] = useState(["Главная", "Блог", "Контакты"]);
+    const [open, setOpen] = useState(false)
+    const [menuItems, setMenuItems] = useState(['Главная', 'Блог', 'Контакты'])
 
     const handleMenuClick = () => {
-        setOpen((prevState) => !prevState);
-    };
+        setOpen((prevState) => !prevState)
+    }
 
     // Добавили id
     const handleItemClick = (id) => {
-        console.log(id);
-        setMenuItems((prevItems) => prevItems.filter((tag) => tag !== id));
-    };
+        console.log(id)
+        setMenuItems((prevItems) => prevItems.filter((tag) => tag !== id))
+    }
 
     return (
         <div>
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </ul>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
