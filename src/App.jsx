@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 const App = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     {/* <span><Page4/></span> */}
     {/* <span><Page6/></span> */}
     {/* <span><Page7/></span> */}
