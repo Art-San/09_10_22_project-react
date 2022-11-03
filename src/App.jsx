@@ -3,15 +3,14 @@ import React from 'react'
 import EpisodesList from './components/EpisodesList'
 
 const App = () => {
-  return (
-    <>
-     {/* <Counter/> */}
-     <div className='App'>
-       <EpisodesList/>
-     </div>
-     
-    </>
-  )
+    return (
+        <>
+            {/* <Counter/> */}
+            <div className="App">
+                <EpisodesList />
+            </div>
+        </>
+    )
 }
 
 export default App
