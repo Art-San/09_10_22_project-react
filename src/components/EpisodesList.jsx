@@ -9,9 +9,9 @@ const EpisodesList = () => {
     const [years, setYears] = useState([])
     const [filter, setFilter] = useState()
     const count = episodes.length
-    const pageSize = 8
+    const pageSize = 6
     const [currentPage, setCurrentPage] = useState(1)
-
+    // console.log('years', years)
     const getEpisodes = (year) => {
         fetchAll(year).then((response) => setEpisodes(response))
         setCurrentPage(1)
@@ -42,6 +42,8 @@ const EpisodesList = () => {
                         items={years}
                         filter={filter}
                         onChangeFilter={handleFilterChange}
+                        valueProperty="id"
+                        contentProperty="text"
                     />
                 </div>
                 <div className='col-8'>

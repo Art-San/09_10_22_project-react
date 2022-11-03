@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Episode = (props) => {
     const { name, airDate, episode } = props
-    console.log('name', typeof episode)
+    // console.log('name', typeof episode)
     return (
         <div className="col-4 mb-2">
             <div className="card" style={{ height: '100%' }}>
