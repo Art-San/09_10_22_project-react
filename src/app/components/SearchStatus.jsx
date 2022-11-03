@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react'
 
 const SearchStatus = ({ length }) => {
@@ -16,6 +17,9 @@ const SearchStatus = ({ length }) => {
             </span>
         </h2>
     )
+}
+SearchStatus.propTypes = {
+    length: PropTypes.number.isRequired
 }
 
 export default SearchStatus

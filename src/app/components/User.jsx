@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import Qualitie from './Qualitie'
 import BookMark from './Bookmark'
@@ -41,5 +42,15 @@ const User = ({
         </tr>
     )
 }
-
+User.propTypes = {
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    completedMeetings: PropTypes.number.isRequired,
+    rate: PropTypes.number.isRequired,
+    profession: PropTypes.object.isRequired,
+    bookmark: PropTypes.bool.isRequired,
+    qualities: PropTypes.array.isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onToggleBookMark: PropTypes.func.isRequired
+}
 export default User

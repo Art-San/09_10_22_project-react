@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react'
 import Pagination from './Pagination'
 import User from './User'
@@ -44,5 +45,7 @@ const Users = ({ users, ...rest }) => {
         </>
     )
 }
-
+Users.propTypes = {
+    users: PropTypes.array.isRequired
+}
 export default Users
