@@ -135,12 +135,16 @@ const episodes = [
     }
 ]
 
-// Получение эпизодов
 export const fetchAll = (year) =>
     new Promise((resolve) => {
+        // Фильтруем все эпизоды с нужным годом выпуска
+        const filterEpisodes = episodes.filter(({ airDate }) =>
+            year ? airDate.slice(-4) === year : true
+        )
         setTimeout(() => {
-            resolve(episodes)
-        }, 2000)
+            // Передаём офильтрованный список
+            resolve(filterEpisodes)
+        }, 500) // Уменьшили время, чтобы было видно быстрее
     })
 
 // Получение списка годов

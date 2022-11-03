@@ -13,12 +13,6 @@ const EpisodesList = () => {
 
     const [currentPage, setCurrentPage] = useState(1)
 
-    const handlePageChange = (pageIndex) => {
-        setCurrentPage(pageIndex)
-    }
-
-    const pageEpisodes = paginate(episodes, currentPage, pageSize)
-
     const getEpisodes = (year) => {
         fetchAll(year).then((response) => setEpisodes(response))
         setCurrentPage(1)
@@ -29,42 +23,30 @@ const EpisodesList = () => {
     }, [filter])
 
     useEffect(() => {
-        fetchYears().then((response) => setYears(response))
+        fetchYears().then((response) =>
+            setYears([...response, { text: 'Все эпизоды' }]))
     }, [])
 
     const handleFilterChange = (filter) => {
         setFilter(filter)
     }
 
-    const handleReset = () => {
-        setFilter() // Ничего не устанавливаем (undefined)
+    const handlePageChange = (pageIndex) => {
+        setCurrentPage(pageIndex)
     }
 
+    const pageEpisodes = paginate(episodes, currentPage, pageSize)
     return (
         <div className="container pt-2">
             <div className="row">
                 <div className="col-4">
-                    {
-                        !!years.length && (
-                            <>
-                                <GroupList
-                                    items={years}
-                                    filter={filter}
-                                    onChangeFilter={handleFilterChange}
-                                    valueProperty="id"
-                                    contentProperty="text"
-                                />
-                                <hr />
-                                <div className="d-grid">
-                                    <button
-                                        onClick={handleReset}
-                                        className="btn btn-m btn-primary"
-                                    >
-                                        Очистить
-                                    </button>
-                                </div>
-                            </>
-                        )}
+                    <GroupList
+                        items={years}
+                        filter={filter}
+                        onChangeFilter={handleFilterChange}
+                        valueProperty="id"
+                        contentProperty="text"
+                    />
                 </div>
                 <div className='col-8'>
                     <div className="row">
