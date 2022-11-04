@@ -6,31 +6,38 @@ import api from '../api'
 import { paginate } from '../utils/paginate'
 import GroupList from './GroupList'
 
-const Users = ({ users, ...rest }) => {
+const Users = ({ users: allUsers, ...rest }) => {
+    console.log('user.profession', allUsers)
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
-    const count = users.length
+    const [selectedProf, setSelectedProf] = useState()
+    console.log('selectedProf', selectedProf)
+    const count = allUsers.length
     const pageSize = 4
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data))
     }, [])
 
-    const handleProfessionSelect = (params) => {
+    const handleProfessionSelect = item => {
+        // console.log('paginate', item)
+        setSelectedProf(item)
     }
 
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex)
     }
-
-    const userCrop = paginate(users, currentPage, pageSize)
+    const filteredUsers = selectedProf
+        ? allUsers.filter((user) => user.profession === selectedProf)
+        : allUsers
+    const userCrop = paginate(filteredUsers, currentPage, pageSize)
     return (
         <>
             {profession && (
                 <GroupList
+                    selectedItem={selectedProf}
                     items={profession}
                     onItemSelect={handleProfessionSelect}
-                    valueProperty='id'
-                    contentProperty='name' />
+                />
             )}
             {count > 0 && (
                 <table className="table">
