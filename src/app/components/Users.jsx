@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination'
 import User from './User'
 import api from '../api'
@@ -8,16 +8,17 @@ import GroupList from './GroupList'
 
 const Users = ({ users, ...rest }) => {
     const [currentPage, setCurrentPage] = useState(1)
-    const [profession] = useState(api.professions.fetchAll())
+    const [profession, setProfession] = useState()
     const count = users.length
     const pageSize = 4
+    useEffect(() => {
+        api.professions.fetchAll().then((data) => setProfession(data))
+    }, [])
 
     const handleProfessionSelect = (params) => {
-        console.log('params', params)
     }
-    console.log('profession', profession)
+
     const handlePageChange = (pageIndex) => {
-        console.log(pageIndex)
         setCurrentPage(pageIndex)
     }
 
