@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
 import React from 'react'
 import Qualitie from './Qualitie'
 import BookMark from './Bookmark'
+import PropTypes from 'prop-types'
 
 const User = ({
     _id,

@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SearchStatus = ({ length }) => {
     const renderPhrase = (number) => {
