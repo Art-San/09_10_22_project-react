@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import PropTypes from 'prop-types'
 import React from 'react'
 import Qualitie from './Qualitie'
 import BookMark from './Bookmark'

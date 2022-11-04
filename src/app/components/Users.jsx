@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import Pagination from './Pagination'
 import User from './User'
