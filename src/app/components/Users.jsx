@@ -12,7 +12,7 @@ const Users = ({ users: allUsers, ...rest }) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
     const [selectedProf, setSelectedProf] = useState()
-    console.log('selectedProf', selectedProf)
+    // console.log('selectedProf', selectedProf)
     const pageSize = 2
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data))
@@ -23,22 +23,30 @@ const Users = ({ users: allUsers, ...rest }) => {
     }, [selectedProf])
 
     const handleProfessionSelect = (item) => {
-        // console.log('paginate', item)
         setSelectedProf(item)
     }
 
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex)
     }
+    // const filteredUsers = selectedProf
+    // ? allUsers.filter(
+    //     (user) =>
+    //         JSON.stringify(user.profession) ===
+    //         JSON.stringify(selectedProf)
+    // )
+    // : allUsers
     const filteredUsers = selectedProf
-        ? allUsers.filter(
-            (user) =>
-                JSON.stringify(user.profession) ===
-                JSON.stringify(selectedProf)
-        )
+        ? allUsers.filter((user) => {
+            console.log(user.profession)
+            console.log(selectedProf)
+            console.log(user.profession === selectedProf)
+            console.log('=============')
+            if (user.profession === selectedProf) return true
+            return false
+        })
         : allUsers
-        // ? allUsers.filter((user) => user.profession === selectedProf)
-        // : allUsers
+
     const count = filteredUsers.length
     const userCrop = paginate(filteredUsers, currentPage, pageSize)
     const clearFilter = () => {
