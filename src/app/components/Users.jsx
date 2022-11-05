@@ -31,7 +31,7 @@ const Users = ({ users: allUsers, ...rest }) => {
     }
 
     const handleSort = (item) => {
-        console.log('onSort item', item)
+        console.log('onSort ', item)
     }
     const filteredUsers = selectedProf
         ? allUsers.filter(
