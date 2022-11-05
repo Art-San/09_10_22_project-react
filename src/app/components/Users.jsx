@@ -6,9 +6,7 @@ import api from '../api'
 import { paginate } from '../utils/paginate'
 import GroupList from './GroupList'
 import SearchStatus from './SearchStatus'
-// 1. Flex https://getbootstrap.com/docs/5.1/utilities/flex/
-// 2. Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-// 3. Исходный код:https://drive.google.com/drive/folders/1hb6hTn2BLlOODckJh-gLuWplh4p3qmxl
+
 const Users = ({ users: allUsers, ...rest }) => {
     console.log('user.profession', allUsers)
     const [currentPage, setCurrentPage] = useState(1)
@@ -24,7 +22,7 @@ const Users = ({ users: allUsers, ...rest }) => {
         setCurrentPage(1)
     }, [selectedProf])
 
-    const handleProfessionSelect = item => {
+    const handleProfessionSelect = (item) => {
         // console.log('paginate', item)
         setSelectedProf(item)
     }
@@ -33,8 +31,14 @@ const Users = ({ users: allUsers, ...rest }) => {
         setCurrentPage(pageIndex)
     }
     const filteredUsers = selectedProf
-        ? allUsers.filter((user) => user.profession === selectedProf)
+        ? allUsers.filter(
+            (user) =>
+                JSON.stringify(user.profession) ===
+                JSON.stringify(selectedProf)
+        )
         : allUsers
+        // ? allUsers.filter((user) => user.profession === selectedProf)
+        // : allUsers
     const count = filteredUsers.length
     const userCrop = paginate(filteredUsers, currentPage, pageSize)
     const clearFilter = () => {
@@ -52,7 +56,7 @@ const Users = ({ users: allUsers, ...rest }) => {
                             onItemSelect={handleProfessionSelect}
                         />
                         <button
-                            className='btn btn-secondary mt-2'
+                            className="btn btn-secondary mt-2"
                             onClick={clearFilter}
                         >
                             Очистить
