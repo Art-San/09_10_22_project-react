@@ -15,7 +15,15 @@ const Users = ({ users: allUsers, ...rest }) => {
     const count = allUsers.length
     const pageSize = 4
     useEffect(() => {
-        api.professions.fetchAll().then((data) => setProfession(data))
+        api.professions
+            .fetchAll()
+            .then((data) =>
+                setProfession(
+                    Object.assign(data, {
+                        allProfession: { name: 'Все професии' }
+                    })
+                )
+            )
     }, [])
 
     const handleProfessionSelect = item => {
@@ -26,7 +34,7 @@ const Users = ({ users: allUsers, ...rest }) => {
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex)
     }
-    const filteredUsers = selectedProf
+    const filteredUsers = selectedProf && selectedProf._id
         ? allUsers.filter((user) => user.profession === selectedProf)
         : allUsers
     const userCrop = paginate(filteredUsers, currentPage, pageSize)
