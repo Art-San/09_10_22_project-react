@@ -8,11 +8,9 @@ import SearchStatus from './SearchStatus'
 import UsersTable from './UsersTable'
 
 const Users = ({ users: allUsers, ...rest }) => {
-    // console.log('user.profession', allUsers)
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
     const [selectedProf, setSelectedProf] = useState()
-    // console.log('selectedProf', selectedProf)
     const pageSize = 2
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data))
