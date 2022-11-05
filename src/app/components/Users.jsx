@@ -18,11 +18,7 @@ const Users = ({ users: allUsers, ...rest }) => {
         api.professions
             .fetchAll()
             .then((data) =>
-                setProfession(
-                    Object.assign(data, {
-                        allProfession: { name: 'Все професии' }
-                    })
-                )
+                setProfession(data)
             )
     }, [])
 
@@ -34,18 +30,30 @@ const Users = ({ users: allUsers, ...rest }) => {
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex)
     }
-    const filteredUsers = selectedProf && selectedProf._id
+    const filteredUsers = selectedProf
         ? allUsers.filter((user) => user.profession === selectedProf)
         : allUsers
     const userCrop = paginate(filteredUsers, currentPage, pageSize)
+    const clearFilter = () => {
+        setSelectedProf()
+    }
     return (
         <>
             {profession && (
-                <GroupList
-                    selectedItem={selectedProf}
-                    items={profession}
-                    onItemSelect={handleProfessionSelect}
-                />
+                <>
+                    <GroupList
+                        selectedItem={selectedProf}
+                        items={profession}
+                        onItemSelect={handleProfessionSelect}
+                    />
+                    <button
+                        className='btn btn-secondary mt-2'
+                        onClick={clearFilter}
+                    >
+                        {' '}
+                        Очистить
+                    </button>
+                </>
             )}
             {count > 0 && (
                 <table className="table">
