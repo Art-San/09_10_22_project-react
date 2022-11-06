@@ -1,5 +1,5 @@
 import React from 'react'
-
+console.log('')
 const Counter = () => {
     let count = 0
     const formatCount = () => {
