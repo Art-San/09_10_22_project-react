@@ -6,14 +6,14 @@ import { paginate } from '../utils/paginate'
 import GroupList from './GroupList'
 import SearchStatus from './SearchStatus'
 import UsersTable from './UsersTable'
+import _ from 'lodash'
 
 const Users = ({ users: allUsers, ...rest }) => {
-    // console.log('user.profession', allUsers)
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
     const [selectedProf, setSelectedProf] = useState()
-    // console.log('selectedProf', selectedProf)
-    const pageSize = 2
+    const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
+    const pageSize = 8
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data))
     }, [])
@@ -31,8 +31,18 @@ const Users = ({ users: allUsers, ...rest }) => {
     }
 
     const handleSort = (item) => {
-        console.log('onSort item', item)
+        console.log('sortBy.item', sortBy.iter)
+        console.log('item', item)
+        if (sortBy.iter === item) {
+            setSortBy((prevState) => ({
+                ...prevState, order: prevState.order === 'asc' ? 'desc' : 'asc'
+            }))
+        } else {
+            setSortBy({ iter: item, order: 'asc' })
+            console.log('else')
+        }
     }
+
     const filteredUsers = selectedProf
         ? allUsers.filter(
             (user) =>
@@ -42,7 +52,8 @@ const Users = ({ users: allUsers, ...rest }) => {
         : allUsers
 
     const count = filteredUsers.length
-    const userCrop = paginate(filteredUsers, currentPage, pageSize)
+    const sortedUsers = _.orderBy(filteredUsers, [sortBy.iter], [sortBy.order])
+    const userCrop = paginate(sortedUsers, currentPage, pageSize)
     const clearFilter = () => {
         setSelectedProf()
     }
