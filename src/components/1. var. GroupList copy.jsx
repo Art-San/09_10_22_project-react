@@ -11,12 +11,13 @@ const GroupList = ({
     return (
         <div className="list-group">
             {items.map((item) => (
-                <button className={
-                    'list-group-item' +
-                    (item.id === filter ? ' active' : '')
-                }
-                key={item[contentProperty]}
-                onClick={() => onChangeFilter(item[valueProperty])}
+                <button
+                    className={
+                        'list-group-item' +
+                        (item.id === filter ? ' active' : '')
+                    }
+                    key={item[contentProperty]}
+                    onClick={() => onChangeFilter(item[valueProperty])}
                 >
                     {item[contentProperty]}
                 </button>

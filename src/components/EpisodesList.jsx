@@ -44,29 +44,28 @@ const EpisodesList = () => {
         <div className="container pt-2">
             <div className="row">
                 <div className="col-4">
-                    {
-                        !!years.length && (
-                            <>
-                                <GroupList
-                                    items={years}
-                                    filter={filter}
-                                    onChangeFilter={handleFilterChange}
-                                    valueProperty="id"
-                                    contentProperty="text"
-                                />
-                                <hr />
-                                <div className="d-grid">
-                                    <button
-                                        onClick={handleReset}
-                                        className="btn btn-m btn-primary"
-                                    >
-                                        Очистить
-                                    </button>
-                                </div>
-                            </>
-                        )}
+                    {!!years.length && (
+                        <>
+                            <GroupList
+                                items={years}
+                                filter={filter}
+                                onChangeFilter={handleFilterChange}
+                                valueProperty="id"
+                                contentProperty="text"
+                            />
+                            <hr />
+                            <div className="d-grid">
+                                <button
+                                    onClick={handleReset}
+                                    className="btn btn-m btn-primary"
+                                >
+                                    Очистить
+                                </button>
+                            </div>
+                        </>
+                    )}
                 </div>
-                <div className='col-8'>
+                <div className="col-8">
                     <div className="row">
                         {pageEpisodes.map((episode) => (
                             <Episode key={episode.id} {...episode} />

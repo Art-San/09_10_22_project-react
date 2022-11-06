@@ -24,7 +24,8 @@ const EpisodesList = () => {
 
     useEffect(() => {
         fetchYears().then((response) =>
-            setYears([...response, { text: 'Все эпизоды' }]))
+            setYears([...response, { text: 'Все эпизоды' }])
+        )
     }, [])
 
     const handleFilterChange = (filter) => {
@@ -48,7 +49,7 @@ const EpisodesList = () => {
                         contentProperty="text"
                     />
                 </div>
-                <div className='col-8'>
+                <div className="col-8">
                     <div className="row">
                         {pageEpisodes.map((episode) => (
                             <Episode key={episode.id} {...episode} />
