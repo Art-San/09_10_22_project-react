@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination'
 import api from '../api'
@@ -114,7 +113,5 @@ const Users = () => {
     }
     return 'loading...'
 }
-// Users.propTypes = {
-//     users: PropTypes.array
-// }
+
 export default Users
