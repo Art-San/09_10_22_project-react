@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import TableHeader from './TableHeader'
-// import TableBody from './TableBody'
+import TableHeader from './TableHeader'
+import TableBody from './TableBody'
 import BookMark from './Bookmark'
 import QualitiesList from './QualitiesList'
 import Table from './Table'
@@ -52,9 +52,10 @@ const UsersTable = ({
                 selectedSort={selectedSort}
                 columns={columns}
                 data={users}
-            />
-            {/* <TableHeader {...{ onSort, selectedSort, columns }}/> */}
-            {/* <TableBody {...{ columns, data: users }}/> */}
+            >
+                <TableHeader {...{ onSort, selectedSort, columns }}/>
+                <TableBody {...{ columns, data: users }}/>
+            </Table>
         </>
     )
 }
@@ -65,5 +66,5 @@ UsersTable.propTypes = {
     onToggleBookMark: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired
 }
-
+console.log('nnnnn')
 export default UsersTable
