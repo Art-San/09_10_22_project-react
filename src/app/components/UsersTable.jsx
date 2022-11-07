@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import User from './User'
-import TableHeader from './TableHeader'
-import TableBody from './TableBody'
+// import TableHeader from './TableHeader'
+// import TableBody from './TableBody'
 import BookMark from './Bookmark'
 import QualitiesList from './QualitiesList'
+import Table from './Table'
 
 const UsersTable = ({
     users,
@@ -46,15 +46,16 @@ const UsersTable = ({
 
     }
     return (
-        <table className="table">
-            <TableHeader {...{ onSort, selectedSort, columns }}/>
-            <TableBody {...{ columns, data: users }}/>
-            {/* <tbody>
-                {users.map((user) => (
-                    <User key={user._id} {...rest} {...user} />
-                ))}
-            </tbody> */}
-        </table>
+        <>
+            <Table
+                onSort={onSort}
+                selectedSort={selectedSort}
+                columns={columns}
+                data={users}
+            />
+            {/* <TableHeader {...{ onSort, selectedSort, columns }}/> */}
+            {/* <TableBody {...{ columns, data: users }}/> */}
+        </>
     )
 }
 UsersTable.propTypes = {
