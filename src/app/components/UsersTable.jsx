@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import User from './User'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 import BookMark from './Bookmark'
