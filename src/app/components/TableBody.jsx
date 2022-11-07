@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-
+// дальше надо удл
 // const twoDArray = [
 //     [ '[i][j]',  '[i][j+1]',  '...', '[i][j+nj]' ],
 //     ['[i+1][j]','[i+1][j+1]', '...','[i+1][j+nJ]'],
