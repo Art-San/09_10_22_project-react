@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableHeader from './TableHeader'
-import TableBody from './TableBody'
 import BookMark from './Bookmark'
 import QualitiesList from './QualitiesList'
 import Table from './Table'
@@ -16,7 +14,10 @@ const UsersTable = ({
 }) => {
     const columns = {
         name: { path: 'name', name: 'Имя' },
-        qualities: { name: 'Качества', component: (user) => <QualitiesList qualities={user.qualities}/> },
+        qualities: {
+            name: 'Качества',
+            component: (user) => <QualitiesList qualities={user.qualities}/>
+        },
         professions: { path: 'profession.name', name: 'Провфессия' },
         completedMeetings: {
             path: 'completedMeetings',
@@ -46,19 +47,15 @@ const UsersTable = ({
 
     }
     return (
-        <>
-            <Table
-                onSort={onSort}
-                selectedSort={selectedSort}
-                columns={columns}
-                data={users}
-            >
-                <TableHeader {...{ onSort, selectedSort, columns }}/>
-                <TableBody {...{ columns, data: users }}/>
-            </Table>
-        </>
+        <Table
+            onSort={onSort}
+            selectedSort={selectedSort}
+            columns={columns}
+            data={users}
+        />
     )
 }
+
 UsersTable.propTypes = {
     users: PropTypes.array.isRequired,
     onSort: PropTypes.func.isRequired,

@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination'
 import api from '../api'
@@ -12,7 +11,7 @@ const Users = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
     const [selectedProf, setSelectedProf] = useState()
-    const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
+    const [sortBy, setSortBy] = useState({ path: 'name', order: 'asc' })
     const pageSize = 8
 
     const [users, setUsers] = useState()
@@ -114,7 +113,4 @@ const Users = () => {
     }
     return 'loading...'
 }
-// Users.propTypes = {
-//     users: PropTypes.array
-// }
 export default Users
