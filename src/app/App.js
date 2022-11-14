@@ -1,42 +1,17 @@
 import React from 'react'
-import Users from './components/Users'
-// import api from './api'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import Login from './layouts/Login'
+import Main from './layouts/Main'
+import Users from './layouts/Users'
 
 function App() {
-    return (<Users/>
+    return (
+        <Switch>
+            <Route path='/users' component={Users}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/' exact component={Main}/>
+            <Redirect to='/'/>
+        </Switch>
     )
 }
-
-// const App = () => {
-//     const [users, setUsers] = useState()
-//     useEffect(() => {
-//         api.users.fetchAll().then((data) => setUsers(data))
-//     }, [])
-//     const handleDelete = (userId) =>
-//         setUsers(users.filter((user) => user._id !== userId))
-
-//     const handleToggleBookMark = (id) => {
-//         setUsers(
-//             users.map((user) => {
-//                 if (user._id === id) {
-//                     return { ...user, bookmark: !user.bookmark }
-//                 }
-//                 return user
-//             })
-//         )
-//         console.log(id)
-//     }
-//     return (
-//         <div>
-//             {users && (
-//                 <Users
-//                     onDelete={handleDelete}
-//                     onToggleBookMark={handleToggleBookMark}
-//                     users={users}
-//                 />
-//             )}
-//         </div>
-//     )
-// }
-
 export default App
