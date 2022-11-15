@@ -1,8 +1,15 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import UserPage from '../components/UserPage'
+import UsersList from '../components/UsersList'
 
 const Users = () => {
+    const paramms = useParams()
+    const { userId } = paramms
     return (
-        <h1>Users</h1>
+        <>
+            { userId ? <UserPage userId={userId}/> : <UsersList/> }
+        </>
     )
 }
 
