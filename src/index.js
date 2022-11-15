@@ -14,8 +14,8 @@ root.render(
     </BrowserRouter>
 )
 
-// Во избежание ошибок React 18 & React Router 5 в index.js 
-// компонент <React.StrictMode> также необходимо переместить внутрь 
+// Во избежание ошибок React 18 & React Router 5 в index.js
+// компонент <React.StrictMode> также необходимо переместить внутрь
 // компонента <BrowserRouter> таким образом:
 
 // {/* <BrowserRouter>
