@@ -24,25 +24,6 @@ const Login = () => {
                 value={data.password}
                 onChange={handleChange}
             />
-            <div>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="text"
-                    id='emaii'
-                    name='email'
-                    value={data.email}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="password">Пароль</label>
-                <input
-                    type="password"
-                    id='password'
-                    name='password'
-                    value={data.password}
-                    onChange={handleChange}/>
-            </div>
         </form>
     )
 }
