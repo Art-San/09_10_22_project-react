@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
+import TextField from '../components/TextField'
 
 const Login = () => {
     const [data, setData] = useState({ email: '', password: '' })
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')// ему такой метод не нравится
     const handleChange = ({ target }) => {
-        // setEmail(e.target.value)
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value
@@ -13,6 +11,19 @@ const Login = () => {
     }
     return (
         <form action="">
+            <TextField
+                label='Электронная почта'
+                name='email'
+                value={data.email}
+                onChange={handleChange}
+            />
+            <TextField
+                label='Пароль'
+                type='password'
+                name="password"
+                value={data.password}
+                onChange={handleChange}
+            />
             <div>
                 <label htmlFor="email">Email</label>
                 <input
@@ -31,16 +42,6 @@ const Login = () => {
                     name='password'
                     value={data.password}
                     onChange={handleChange}/>
-            </div>
-            <div>
-                <div>
-                    <label htmlFor="radio1">Radio 1</label>
-                    <input type="radio" id='radio1' name='radio'/>
-                </div>
-                <div>
-                    <label htmlFor="radio2">Radio 2</label>
-                    <input type="radio" id='radio2' name='radio'/>
-                </div>
             </div>
         </form>
     )
