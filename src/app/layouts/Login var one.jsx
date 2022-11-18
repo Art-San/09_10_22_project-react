@@ -3,7 +3,7 @@ import TextField from '../components/TextField'
 
 const Login = () => {
     const [data, setData] = useState({ email: '', password: '' })
-    const [, setErrors] = useState()
+    const [errors, setErrors] = useState()
     const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
@@ -13,7 +13,6 @@ const Login = () => {
     useEffect(() => {
         validate()
     }, [data])
-
     const validate = () => {
         const errors = {}
         for (const fieldName in data) {
@@ -22,14 +21,12 @@ const Login = () => {
             }
         }
         setErrors(errors)
-        return Object.keys(errors).length === 0 || false
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const isValid = validate()
-        console.log('isValid', isValid)
-        if (!isValid) return
+        validate()
+        if (Object.keys(errors).length !== 0) return
         console.log('data', data)
     }
     return (
