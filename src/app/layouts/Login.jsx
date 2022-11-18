@@ -9,8 +9,13 @@ const Login = () => {
             [target.name]: target.value
         }))
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('data', data)
+    }
     return (
-        <form action="">
+        <form onSubmit={handleSubmit}>
             <TextField
                 label='Электронная почта'
                 name='email'
@@ -24,6 +29,9 @@ const Login = () => {
                 value={data.password}
                 onChange={handleChange}
             />
+            {/* <button>Submit</button>  */}
+            <button type='submit'>Submit</button>
+            <button type='button'>Submit</button>
         </form>
     )
 }
