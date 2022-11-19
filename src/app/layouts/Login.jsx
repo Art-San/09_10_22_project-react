@@ -3,7 +3,7 @@ import TextField from '../components/TextField'
 
 const Login = () => {
     const [data, setData] = useState({ email: '', password: '' })
-    const [, setErrors] = useState()
+    const [errors, setErrors] = useState({})
     const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
@@ -39,6 +39,7 @@ const Login = () => {
                 name='email'
                 value={data.email}
                 onChange={handleChange}
+                error={errors.email}
             />
             <TextField
                 label='Пароль'
@@ -46,6 +47,7 @@ const Login = () => {
                 name="password"
                 value={data.password}
                 onChange={handleChange}
+                error={errors.password}
             />
             {/* <button>Submit</button>  */}
             <button type='submit'>Submit</button>
