@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '../components/TextField'
 import { validator } from '../utils/validator'
-
+// 19
 const Login = () => {
     const [data, setData] = useState({ email: '', password: '' })
     const [errors, setErrors] = useState({})
@@ -16,6 +16,9 @@ const Login = () => {
         email: {
             isRequired: {
                 message: 'Электронная почта обязательна для заполнения'
+            },
+            isEmail: {
+                message: 'Email введен не некорректно'
             }
         },
         password: {
