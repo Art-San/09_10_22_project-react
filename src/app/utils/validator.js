@@ -1,3 +1,5 @@
+// https://regex101.com/
+// https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference
 export function validator(data, config) {
     const errors = {}
     function validate(validateMethod, data, config) {
@@ -8,6 +10,11 @@ export function validator(data, config) {
         case 'isEmail': {
             const emailRegExp = /^\S+@\S+\.\S+$/g
             if (!emailRegExp.test(data)) return config.message
+            break
+        }
+        case 'isCapitalSymbol': {
+            const capitalRegExp = /[A-Z]+/g
+            if (!capitalRegExp.test(data)) return config.message
             break
         }
         default:

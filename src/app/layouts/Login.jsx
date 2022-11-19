@@ -24,9 +24,13 @@ const Login = () => {
         password: {
             isRequired: {
                 message: 'Пароль обязательна для заполнения'
+            },
+            isCapitalSymbol: {
+                message: 'Пароль должен содержать хотя бы одну заглавную букву'
             }
         }
     }
+
     useEffect(() => {
         validate()
     }, [data])
