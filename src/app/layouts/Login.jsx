@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '../components/TextField'
 import { validator } from '../utils/validator'
-// 19
+// 19/11
 const Login = () => {
     const [data, setData] = useState({ email: '', password: '' })
     const [errors, setErrors] = useState({})
@@ -48,6 +48,8 @@ const Login = () => {
         return Object.keys(errors).length === 0
     }
 
+    const isValid = Object.keys(errors).length === 0
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const isValid = validate()
@@ -73,7 +75,7 @@ const Login = () => {
                 error={errors.password}
             />
             {/* <button>Submit</button>  */}
-            <button type='submit'>Submit</button>
+            <button type='submit' disabled={!isValid}>Submit</button>
         </form>
     )
 }
