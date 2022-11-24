@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Pagination from './Pagination'
-import api from '../api'
-import { paginate } from '../utils/paginate'
-import GroupList from './GroupList'
-import SearchStatus from './SearchStatus'
-import UsersTable from './UsersTable'
+import Pagination from '../../common/Pagination'
+import api from '../../../api'
+import { paginate } from '../../../utils/paginate'
+import GroupList from '../../common/GroupList'
+import SearchStatus from '../../../components/ui/SearchStatus'
+import UsersTable from '../../ui/UsersTable'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 
-const UsersList = () => {
+const UsersListPage = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [profession, setProfession] = useState()
     const [selectedProf, setSelectedProf] = useState()
@@ -114,7 +114,7 @@ const UsersList = () => {
     }
     return 'loading...'
 }
-UsersList.propTypes = {
+UsersListPage.propTypes = {
     users: PropTypes.array
 }
-export default UsersList
+export default UsersListPage
