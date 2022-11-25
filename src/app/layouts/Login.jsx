@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import LoginForm from '../components/ui/LoginForm'
 import RegisterForm from '../components/ui/RegisterForm'
-
+// 25/11/22
 const Login = () => {
     const { type } = useParams()
     const [formType, setFormType] = useState(

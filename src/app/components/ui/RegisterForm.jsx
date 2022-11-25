@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '../common/form/TextField'
 import { validator } from '../../utils/validator'
-
+// 25/11/22
 const RegisterForm = () => {
     const [data, setData] = useState({ email: '', password: '' })
     const [errors, setErrors] = useState({})
