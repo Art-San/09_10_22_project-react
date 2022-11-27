@@ -4,7 +4,7 @@ import { validator } from '../../utils/validator'
 import api from '../../api'
 import SelectField from '../common/form/SelectField'
 import RadioField from '../common/form/RadioField'
-// import { professions } from '../../api/fake.api/professions.api'
+import Select from 'react-select'
 
 const RegisterForm = () => {
     const [data, setData] = useState({
@@ -13,10 +13,12 @@ const RegisterForm = () => {
         profession: '',
         sex: 'male'
     })
+    const [qualities, setQualities] = useState({})
     const [errors, setErrors] = useState({})
     const [professions, setProfession] = useState()
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data))
+        api.qualities.fetchAll().then((data) => setQualities(data))
     }, [])
     const handleChange = ({ target }) => {
         setData((prevState) => ({
@@ -109,6 +111,13 @@ const RegisterForm = () => {
             name='sex'
             onChange={handleChange}
             />
+            <Select
+                isMulti
+                options={}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={handleChange}
+            />
             <button
                 type='submit'
                 disabled={!isValid}
@@ -120,3 +129,19 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm
+
+// import React from 'react';
+
+// import Select from 'react-select';
+// import { colourOptions } from '../data';
+
+// export default () => (
+//   <Select
+//     defaultValue={[colourOptions[2], colourOptions[3]]}
+//     isMulti
+//     name="colors"
+//     options={colourOptions}
+//     className="basic-multi-select"
+//     classNamePrefix="select"
+//   />
+// );
