@@ -4,7 +4,6 @@ import { validator } from '../../utils/validator'
 import api from '../../api'
 import SelectField from '../common/form/SelectField'
 import RadioField from '../common/form/RadioField'
-// import { professions } from '../../api/fake.api/professions.api'
 
 const RegisterForm = () => {
     const [data, setData] = useState({
