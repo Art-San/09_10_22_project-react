@@ -7,5 +7,6 @@ export default {
     isCapitalSymbol: (value) => /[A-Z]+/g.test(value),
     // Содержит число
     isContainDigit: (value) => /\d+/g.test(value),
-    isFIO: (value) => /^(([a-zA-Zа-яА-Я]+)\s){1,}(([a-zA-Zа-яА-Я]+)\s?){1,}$/g.test(value)
+    isFIO: (value) => /^(([a-zA-Zа-яА-Я]+)\s){1,}(([a-zA-Zа-яА-Я]+)\s?){1,}$/g.test(value),
+    isContainValue: (array, value) => array.includes(value)
 }
