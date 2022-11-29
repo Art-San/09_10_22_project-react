@@ -14,5 +14,10 @@ export const validationSchema = {
         isEmail: {
             message: 'Email введён некорректно'
         }
+    },
+    deliveryType: {
+        isRequired: {
+            message: 'Выберите вариант доставки'
+        }
     }
 }
