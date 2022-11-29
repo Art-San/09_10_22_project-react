@@ -1,7 +1,8 @@
 import React from 'react'
+import OrderForm from '../components/order-form/OrderForm'
 
 const OrderPage = () => {
-    return <h1>Оформление заказа</h1>
+    return <OrderForm />
 }
 
 export default OrderPage
