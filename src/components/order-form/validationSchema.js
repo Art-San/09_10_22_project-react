@@ -19,5 +19,10 @@ export const validationSchema = {
         isRequired: {
             message: 'Выберите вариант доставки'
         }
+    },
+    needLiftFloor: {
+        isRequired: {
+            message: 'Укажите, нужен ли подъём на этаж'
+        }
     }
 }
