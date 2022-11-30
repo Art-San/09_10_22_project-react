@@ -4,7 +4,6 @@ import SingleCheckboxField from './SingleCheckboField'
 
 const CheckboxField = (props) => {
     const { name, value, onChange, label, options, error } = props
-
     const handleChange = (e) => {
         const { value: inputValue } = e.target
         const newValue = value.includes(inputValue)
@@ -20,10 +19,14 @@ const CheckboxField = (props) => {
 
         onChange(fakeEvent)
     }
+
     const getIsChecked = (inputValue) => value.includes(inputValue)
+    const getInputClasses = () => {
+        return error ? ' is-invalid' : ''
+    }
     return (
         <div className="mb-4">
-            <p>
+            <p className={getInputClasses()}>
                 <label>{label}</label>
             </p>
             {options.map((option) => (

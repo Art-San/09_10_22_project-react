@@ -39,11 +39,5 @@ export const validationSchema = {
             message: 'Пароль должен содержать мимимум 8 символов',
             param: 8
         }
-    },
-    agreement: {
-        isContainValue: {
-            message: 'Согласие на обработку данных обязательно',
-            param: '1' // должен содержать значение 1
-        }
     }
 }

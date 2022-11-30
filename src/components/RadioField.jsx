@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const RadioField = ({ label, name, value, options, onChange, error }) => {
+    // console.log('RadioField value', value)
+    // console.log('RadioField error', error)
     const getOptionId = (option) => `${option.name}_${option.value}`
 
     const getInputClasses = () => {

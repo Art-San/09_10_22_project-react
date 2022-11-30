@@ -24,5 +24,11 @@ export const validationSchema = {
         isRequired: {
             message: 'Укажите, нужен ли подъём на этаж'
         }
+    },
+    agreement: {
+        isContainValue: {
+            message: 'Согласие на обработку данных обязательно',
+            param: '1' // должен содержать значение 1
+        }
     }
 }

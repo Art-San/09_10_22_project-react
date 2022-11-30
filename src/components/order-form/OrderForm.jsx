@@ -82,9 +82,9 @@ const OrderForm = () => {
                 <RadioField
                     options={needLiftFloorOptions}
                     label="Нужен подъём на этаж?"
-                    value={values.needLiftFloor}
                     name="needLiftFloor"
                     onChange={handleChange}
+                    value={values.needLiftFloor}
                     error={errors.needLiftFloor}
                 />
                 <MultiSelect

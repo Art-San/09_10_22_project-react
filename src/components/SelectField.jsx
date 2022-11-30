@@ -10,6 +10,8 @@ const SelectField = ({
     options,
     defaultOption
 }) => {
+    // console.log('SelectField value', value)
+    // console.log('SelectField error', error)
     const getSelectClasses = () => {
         return 'form-select' + (error ? ' is-invalid' : '')
     }
