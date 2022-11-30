@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react'
 import TextField from '../common/form/TextField'
 import { validator } from '../../utils/validator'
 import CheckBoxField from '../common/form/CheckBoxField'
+import * as yup from 'yup'
 
 const LoginForm = () => {
-    const [data, setData] = useState({ email: '', password: '', stayOn: false })
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+        stayOn: false
+    })
     const [errors, setErrors] = useState({})
-    // const handleChange = ({ target }) => {
-    //     setData((prevState) => ({
-    //         ...prevState,
-    //         [target.name]: target.value
-    //     }))
-    // }
     const handleChange = (target) => {
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value
         }))
     }
+    validateScheme = yup.Object().shape({
+        email: yup.string().required('Электронная почта обязательна для заполнения')
+    })
 
     const validatorConfig = {
         email: {
