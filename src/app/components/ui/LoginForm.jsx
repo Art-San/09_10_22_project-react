@@ -3,6 +3,7 @@ import TextField from '../common/form/TextField'
 // import { validator } from '../../utils/validator'
 import CheckBoxField from '../common/form/CheckBoxField'
 import * as yup from 'yup'
+// 01.12.22
 
 const LoginForm = () => {
     const [data, setData] = useState({
@@ -17,6 +18,7 @@ const LoginForm = () => {
             [target.name]: target.value
         }))
     }
+    // object() пишем с маленькой буквы
     const validateScheme = yup.object().shape({
         password: yup
             .string()
