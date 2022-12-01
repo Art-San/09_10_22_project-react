@@ -24,29 +24,6 @@ export const validationSchema = yup.object().shape({
         )
 })
 
-// import * as yup from 'yup'
-
-// export const validationSchema = yup.object().shape({
-//     fio: yup
-//         .string()
-//         .required('ФИО обязательно для заполнения')
-//         .matches(
-//             /^(([a-zA-Zа-яА-Я]+)s){1,}(([a-zA-Zа-яА-Я]+)s?){1,}$/g,
-//             'Введите корректное ФИО'
-//         ),
-//     email: yup
-//         .string()
-//         .required('Электронная почта обязательна для заполнения')
-//         .email('Email введён некорректно'),
-//     deliveryType: yup.string().required('Выберите вариант доставки'),
-//     needLiftFloor: yup.string().required('Укажите нужен ли подъём на этаж'),
-//     agreement: yup.array().test(
-//         'contains value', // название проверки
-//         'Согласие на обработку данных обязательно', // текст ошибки
-//         // функция, которая проверит валидность
-//         (value) => value.includes('1')
-//     )
-// })
 // export const validationSchema = {
 //     fio: {
 //         isRequired: {
