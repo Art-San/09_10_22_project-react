@@ -17,11 +17,7 @@ const LoginForm = () => {
             [target.name]: target.value
         }))
     }
-    const validateScheme = yup.Object().shape({
-        email: yup
-            .string()
-            .required('Электронная почта обязательна для заполнения')
-            .email('Email введен не некорректно'),
+    const validateScheme = yup.object().shape({
         password: yup
             .string()
             .required('Пароль обязателен для заполнения')
@@ -37,7 +33,11 @@ const LoginForm = () => {
                 /(?=.*[!@#$%^&*])/,
                 'Пароль должен содержать один из специальных символов !@#$%^&*'
             )
-            .matches(/(?=.{8,})/, 'Пароль должен быть не менее 8 символов')
+            .matches(/(?=.{8,})/, 'Пароль должен быть не менее 8 символов'),
+        email: yup
+            .string()
+            .required('Электронная почта обязательна для заполнения')
+            .email('Email введен не некорректно')
     })
 
     // const validatorConfig = {
