@@ -16,6 +16,7 @@ const SelectField = ({
     const getInputClasses = () => {
         return 'form-select' + (error ? ' is-invalid' : '')
     }
+
     const optionsArray =
         !Array.isArray(options) && typeof (options) === 'object'
             ? Object.keys(options).map(optionName => ({
@@ -23,6 +24,7 @@ const SelectField = ({
                 value: options[optionName]._id
             }))
             : options
+    console.log('optionsArray', optionsArray)
 
     return (
         <div className="md-4">
