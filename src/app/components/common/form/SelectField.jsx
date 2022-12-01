@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 const SelectField = ({
     label,
-    value,
-    onChange,
     defaultOption,
+    name,
     options,
+    onChange,
+    value,
     error
 }) => {
     const handleChange = ({ target }) => {
@@ -25,13 +26,13 @@ const SelectField = ({
 
     return (
         <div className="md-4">
-            <label htmlFor="validationCustom04" className="form-label">
+            <label htmlFor={name} className="form-label">
                 {label}
             </label>
             <select
                 className={getInputClasses()}
-                id="validationCustom04"
-                name='profession'
+                id={name}
+                name={name}
                 value={value}
                 onChange={handleChange}
             >
@@ -59,7 +60,8 @@ SelectField.propTypes = {
     onChange: PropTypes.func,
     defaultOption: PropTypes.string,
     options: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    error: PropTypes.string
+    error: PropTypes.string,
+    name: PropTypes.string
 }
 
 export default SelectField
