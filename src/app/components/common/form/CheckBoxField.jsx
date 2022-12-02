@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const CheckBoxField = ({ name, value, onChange, children, error }) => {
     const nandleChange = () => {
         console.log('')
-        onChange({ name: name, value: !value })
+        onChange({ name, value: !value })
     }
     const getInputClasses = () => {
         return 'form-check-input' + (error ? ' is-invalid' : '')

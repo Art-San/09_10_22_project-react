@@ -16,13 +16,15 @@ const SelectField = ({
     const getInputClasses = () => {
         return 'form-select' + (error ? ' is-invalid' : '')
     }
-    const optionsArray =
-        !Array.isArray(options) && typeof (options) === 'object'
-            ? Object.keys(options).map(optionName => ({
-                name: options[optionName].name,
-                value: options[optionName]._id
-            }))
-            : options
+    // const optionsArray =
+    //     !Array.isArray(options) && typeof (options) === 'object'
+    //         ? Object.keys(options).map(optionName => ({
+    //             name: options[optionName].name,
+    //             value: options[optionName]._id
+    //         }))
+    //         : options
+
+    const optionsArray = !Array.isArray(options) && typeof options === 'object' ? Object.values(options) : options
 
     return (
         <div className="md-4">
@@ -39,14 +41,20 @@ const SelectField = ({
                 <option disabled value="">
                     {defaultOption}
                 </option>
-                {
+                {/* {
                     optionsArray && optionsArray.map(option => <option
                         value={option.value}
                         key={option.value}
                     >
                         {option.name}
                     </option>)
-                }
+                } */}
+                {optionsArray.length > 0 &&
+                    optionsArray.map((option) => (
+                        <option value={option.value} key={option.value}>
+                            {option.label}
+                        </option>
+                    ))}
             </select>
             {error && <div className="invalid-feedback">
                 {error}
