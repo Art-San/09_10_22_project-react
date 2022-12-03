@@ -1,22 +1,82 @@
+// import React, { useState } from 'react'
+// import PropTypes from 'prop-types'
+// // 20
+// const TextField = ({ label, type, name, value, onChange, error }) => {
+//     const [showPassword, setShowPassword] = useState(false)
+
+//     const handleChange = ({ target }) => {
+//         onChange({ name: target.name, value: target.value })
+//     }
+
+//     const getInputClasses = () => {
+//         return 'form-control' + (error ? ' is-invalid' : '')
+//     }
+
+//     const toggleShowPassword = () => {
+//         setShowPassword((prevState) => !prevState)
+//     }
+//     return (
+//         <div className="mb-4">
+//             <label htmlFor={name}>{label}</label>
+//             <div className="input-group has-validation">
+//                 <input
+//                     type={showPassword ? 'text' : type}
+//                     id={name}
+//                     name={name}
+//                     value={value}
+//                     onChange={handleChange}
+//                     className={getInputClasses()}
+//                 />
+//                 {type === 'password' && (
+//                     <button
+//                         className="btn btn-outline-secondary"
+//                         type="button"
+//                         onClick={toggleShowPassword}
+//                     >
+//                         <i
+//                             className={
+//                                 'bi bi-eye' + (showPassword ? '-slash' : '')
+//                             }
+//                         ></i>
+//                     </button>
+//                 )}
+//                 {error && <div className="invalid-feedback">{error}</div>}
+//             </div>
+//         </div>
+//     )
+// }
+// TextField.defaultProps = {
+//     type: 'text'
+// }
+
+// TextField.propTypes = {
+//     label: PropTypes.string,
+//     type: PropTypes.string,
+//     name: PropTypes.string,
+//     value: PropTypes.string,
+//     onChange: PropTypes.func,
+//     error: PropTypes.string
+// }
+
+// export default TextField
+
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-// 20
+
 const TextField = ({ label, type, name, value, onChange, error }) => {
     const [showPassword, setShowPassword] = useState(false)
 
     const handleChange = ({ target }) => {
         onChange({ name: target.name, value: target.value })
     }
-
     const getInputClasses = () => {
         return 'form-control' + (error ? ' is-invalid' : '')
     }
-
     const toggleShowPassword = () => {
-        setShowPassword((prevState) => (!prevState))
+        setShowPassword((prevState) => !prevState)
     }
     return (
-        <div className='mb-4' >
+        <div className="mb-4">
             <label htmlFor={name}>{label}</label>
             <div className="input-group has-validation">
                 <input
@@ -34,12 +94,13 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
                         onClick={toggleShowPassword}
                     >
                         <i
-                            className={'bi bi-eye' + (showPassword ? '-slash' : '')
+                            className={
+                                'bi bi-eye' + (showPassword ? '-slash' : '')
                             }
                         ></i>
                     </button>
                 )}
-                {error && <div className='invalid-feedback' >{error}</div>}
+                {error && <div className="invalid-feedback">{error}</div>}
             </div>
         </div>
     )
@@ -47,7 +108,6 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
 TextField.defaultProps = {
     type: 'text'
 }
-
 TextField.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,

@@ -8,12 +8,12 @@ import NavBar from './components/ui/NavBar'
 function App() {
     return (
         <>
-            <NavBar/>
+            <NavBar />
             <Switch>
-                <Route path='/users/:userId?' component={Users}/>
-                <Route path='/login/:type?' component={Login}/>
-                <Route path='/' exact component={Main}/>
-                <Redirect to='/'/>
+                <Route path="/users/:userId?/:edit?" component={Users} />
+                <Route path="/login/:type?" component={Login} />
+                <Route path="/" exact component={Main} />
+                <Redirect to="/" />
             </Switch>
         </>
     )

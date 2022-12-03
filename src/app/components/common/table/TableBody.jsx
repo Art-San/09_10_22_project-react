@@ -20,7 +20,8 @@ const TableBody = ({ data, columns }) => {
                     {Object.keys(columns).map((column) => (
                         <td key={column}>{renderContent(item, column)}</td> // _.get -- ЭТО ЛОДАШ
                     ))}
-                </tr>))}
+                </tr>
+            ))}
         </tbody>
     )
 }

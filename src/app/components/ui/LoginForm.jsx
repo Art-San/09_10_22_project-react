@@ -92,31 +92,32 @@ const LoginForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <TextField
-                label='Электронная почта'
-                name='email'
+                label="Электронная почта"
+                name="email"
                 value={data.email}
                 onChange={handleChange}
                 error={errors.email}
             />
             <TextField
-                label='Пароль'
-                type='password'
+                label="Пароль"
+                type="password"
                 name="password"
                 value={data.password}
                 onChange={handleChange}
                 error={errors.password}
             />
             <CheckBoxField
-                name='stayOn'
+                name="stayOn"
                 value={data.stayOn}
                 onChange={handleChange}
             >
                 Оставаться в системе
             </CheckBoxField>
             <button
-                type='submit'
+                type="submit"
                 disabled={!isValid}
-                className='btn btn-primary w-100 mx-auto'>
+                className="btn btn-primary w-100 mx-auto"
+            >
                 Submit
             </button>
         </form>

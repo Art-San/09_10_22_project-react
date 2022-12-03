@@ -14,10 +14,16 @@ const UsersTable = ({
     ...rest
 }) => {
     const columns = {
-        name: { path: 'name', name: 'Имя', component: (user) => <Link to={`/users/${user._id}`} >{user.name}</Link> },
+        name: {
+            path: 'name',
+            name: 'Имя',
+            component: (user) => (
+                <Link to={`/users/${user._id}`}>{user.name}</Link>
+            )
+        },
         qualities: {
             name: 'Качества',
-            component: (user) => <Qualities qualities={user.qualities}/>
+            component: (user) => <Qualities qualities={user.qualities} />
         },
         professions: { path: 'profession.name', name: 'Провфессия' },
         completedMeetings: {
@@ -45,7 +51,6 @@ const UsersTable = ({
                 </button>
             )
         }
-
     }
     return (
         <Table

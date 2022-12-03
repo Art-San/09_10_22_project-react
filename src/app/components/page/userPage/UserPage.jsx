@@ -12,18 +12,19 @@ const UserPage = ({ userId }) => {
         api.users.getById(userId).then((data) => setUser(data))
     }, [])
     const handleClick = () => {
-        history.push('/users')
+        history.push(history.location.pathname + '/edit')
+        // history.push('/users')
     }
     if (user) {
         return (
             <div>
                 <h1>{user.name}</h1>
                 <h2>Профессия: {user.profession.name}</h2>
-                <Qualities qualities={user.qualities}/>
+                <Qualities qualities={user.qualities} />
                 {/* <QualitiesList qualities={user.qualities}/> */}
                 <p>CompletedMeetings: {user.completedMeetings}</p>
                 <h2>Rate: {user.rate}</h2>
-                <button onClick={handleClick} >Все пользователи</button>
+                <button onClick={handleClick}>Изменить</button>
             </div>
         )
     } else {
